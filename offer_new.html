@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plaza. - Offer0001 AI Image Generation</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .offer-title {
+            text-align: left;
+            margin-top: 0px;
+            margin-bottom: 5px;
+        }
+        .offer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .offer-image-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .main-image {
+            width: 100%;
+            height: 415px; 
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            margin-top: 120px;
+        }
+        .preview-images {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+        }
+        .preview-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        .preview-image:hover {
+            opacity: 0.7;
+        }
+        .detail-card {
+            background: #000;
+            color: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 515px;
+            margin-top: 120px;
+            min-width: fit-content;
+        }
+        .card-bottom {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .key-features {
+    margin-bottom: 0.5rem;
+}
+
+.key-features h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2em;
+}
+
+.key-features ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
+
+.key-features li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9em;
+}
+        .pricing-buy {
+            display: flex;
+            align-items: center;
+            gap: 1rem; 
+        }
+        .pricing {
+            font-size: 20px;
+            font-weight: lighter;
+            margin: 0;
+        }
+        .ask-button, .buy-button {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            min-width: fit-content;
+        }
+        .ask-button {
+            background-color: #fff;
+            color: #000;
+        }
+        .ask-button:hover {
+            background-color: #11f250;
+            color: #000;
+        }
+
+        .buy-button {
+            background-color: #00ff00;
+            color: #000;
+        }
+
+        .buy-button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .offer-content {
+            grid-column: 1 / -1;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .review-section {
+            margin-top: 2rem;
+            grid-column: 1 / -1;
+        }
+        .reviews {
+            display: grid;
+            gap: 1rem;
+        }
+        .review {
+            background-color: #e7e7e7;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        .reviewer-name {
+            font-weight: bold;
+        }
+        .review-date {
+            color: #666;
+        }
+        .review-stars {
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        .review-score {
+            color: #fff;
+            margin-top: 0.1rem;
+            margin-bottom: 0.5rem;
+            text-decoration: none;
+        }
+        .review-score .stars {
+            color: #fff;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+        .review-score .score {
+            color: #fff;
+            font-weight: normal;
+            text-decoration: none;
+        }
+        .review-score .review-count {
+            color: #999;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin-left: 0.5rem;
+        }
+
+        .service-details {
+    margin-bottom: 0.5rem;
+}
+
+.service-details h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2em;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.feature-icon {
+    margin-right: 0.75rem;
+    color: #11f250;
+}
+
+.service-item span {
+    font-size: 0.9em;
+}
+
+    </style>
+</head>
+<body>
+    <a id="top"></a>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="home.html" class="logo">Plaza.</a>
+                <div class="nav-links">
+                    <a href="#" onclick="window.history.back(); return false;">Back to Services</a>
+                    <a href="#reviews">Reviews</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="offer-grid">
+            <div class="offer-image-container">
+                <img id="mainImage" src="https://c-ipfs-gw.nmkr.io/ipfs/QmcGEaMiNzwua9yc9iR1SyuAxzcbW794144unfS289ucqK" alt="Offer Image" class="main-image" onclick="openFullImage(this.src)">
+                <div class="preview-images">
+                    <img src="https://c-ipfs-gw.nmkr.io/ipfs/QmcGEaMiNzwua9yc9iR1SyuAxzcbW794144unfS289ucqK" alt="Preview 1" class="preview-image" onclick="changeMainImage(this.src)">
+                    <img src="https://picsum.photos/400/300?random=1" alt="Preview 3" class="preview-image" onclick="changeMainImage(this.src)">
+                    <img src="https://picsum.photos/400/300?random=2" alt="Preview 4" class="preview-image" onclick="changeMainImage(this.src)">
+                </div>
+            </div>
+            
+            <div class="detail-card">
+                <h1 class="offer-title">AI Image Generation</h1>
+                
+                <a href="#reviews" class="review-score">                
+                    <div id="reviewSummary" class="review-score">
+                </div></a>
+
+
+                <div class="key-features">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Customizable art styles and themes</li>
+                        <li>High-resolution outputs suitable for printing</li>
+                        <li>Individual themes and styles</li>
+                        <li>thats it.</li>
+                    </ul>
+                </div>
+                <div class="service-details">
+                    <h3>Service Details</h3>
+                    <div class="service-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feature-icon"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <span>Delivery within 48 hours</span>
+                    </div>
+                    <div class="service-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feature-icon"><path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M3 12a9 9 0 0 0 15 6.7L21 16"></path><path d="M21 22v-6h-6"></path></svg>
+                        <span>Unlimited revisions</span>
+                    </div>
+                </div>
+            
+                <div class="card-bottom">
+                    <a href="#" id="askQuestionLink" class="ask-button">Ask something</a>
+                    <div class="pricing-buy">
+                        <a href="https://pay.nmkr.io/?p=cb3b12d8108d47e6a493fd622cd2554e&c=1" class="buy-button">Buy for 2999 ₳</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="offer-content">
+                <h2>Service Description</h2>
+                <p>Transform your ideas into stunning digital artworks using cutting-edge AI technology. Our service combines advanced machine learning algorithms with artistic vision to create unique, high-quality images tailored to your specifications. Whether you need illustrations, abstract art, or concept designs, our AI artist can bring your imagination to life.</p>
+                <p>Our AI has been trained on millions of artworks across various styles and periods, allowing it to generate images that range from photorealistic to avant-garde. Simply provide us with a text description of your desired artwork, including style preferences, color schemes, and subject matter. Our AI will then generate multiple options for you to choose from, with the ability to refine and iterate based on your feedback.</p>
+                <p>This service is perfect for individuals seeking personal artwork, businesses in need of unique visual content, or creative professionals looking to enhance their projects with AI-generated elements. We offer a seamless process from concept to final delivery, ensuring you receive a high-quality digital artwork that meets your exact specifications.</p>
+            </div>
+
+            <div id="reviews" class="review-section">
+                <h2>Customer Reviews</h2>
+                <div class="reviews">
+                    <div class="review">
+                        <div class="review-header">
+                            <span class="reviewer-name">John Doe</span>
+                            <span class="review-date">2024-03-15</span>
+                        </div>
+                        <div class="review-stars" style="color: #000;">★★★★★</div>
+                        <p class="review-text">Absolutely amazing service! The AI-generated art exceeded my expectations.</p>
+                    </div>
+                    <div class="review">
+                        <div class="review-header">
+                            <span class="reviewer-name">Jane Smith</span>
+                            <span class="review-date">2024-03-10</span>
+                        </div>
+                        <div class="review-stars" style="color: #000;">★★★★☆</div>
+                        <p class="review-text">Great service, but it took a few iterations to get exactly what I wanted.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="footer-container">
+            <p>&copy; 2024 Plaza. by NMKR - All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy_policy.html" class="link-4">Privacy Policy</a>
+                <a href="legal.html" class="link-4">Terms of Service</a>
+                <a href="mailto:support@nmkr.io" class="link-4">Contact</a>
+            </div>
+        </div>
+    </footer>
+    </body>
+
+    <script>
+        function changeMainImage(src) {
+            document.getElementById('mainImage').src = src;
+        }
+
+        function openFullImage(src) {
+            window.open(src, '_blank');
+        }
+
+        function updateReviewSummary() {
+            const reviews = document.querySelectorAll('.review');
+            if (reviews.length === 0) {
+                console.warn('No reviews found');
+                return;
+            }
+            
+            let totalStars = 0;
+            reviews.forEach(review => {
+                const stars = review.querySelector('.review-stars').textContent.match(/★/g).length;
+                totalStars += stars;
+            });
+            const averageRating = totalStars / reviews.length;
+            const roundedRating = Math.round(averageRating * 10) / 10;
+
+            const reviewSummary = document.getElementById('reviewSummary');
+            if (reviewSummary) {
+                reviewSummary.innerHTML = `
+                    <span class="stars">${getStarString(roundedRating)}</span>
+                    <span class="score">${roundedRating.toFixed(1)}</span>
+                    <span class="review-count">(${reviews.length} reviews)</span>
+                `;
+            } else {
+                console.error('Review summary element not found');
+            }
+        }
+
+        function getStarString(rating) {
+            return '★'.repeat(Math.floor(rating)) + '☆'.repeat(5 - Math.floor(rating));
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            updateReviewSummary();
+
+            const askQuestionLink = document.getElementById('askQuestionLink');
+            if (askQuestionLink) {
+                const pageTitle = document.title;
+                const mailtoLink = `mailto:contact_provider@plaza.store?subject=${encodeURIComponent(pageTitle)}`;
+                askQuestionLink.setAttribute('href', mailtoLink);
+            } else {
+                console.error('Ask Question link not found');
+            }
+        });
+    </script>
+    </html>
+
