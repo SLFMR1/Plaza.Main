@@ -133,7 +133,7 @@ height: 28px;
     text-decoration: none;
     font-weight: 700;
     border-radius: 30px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     border: none;
     cursor: pointer;
 }
@@ -141,8 +141,13 @@ height: 28px;
 .cta-button:hover {
     background-color: #11f250;
     transform: scale(1.03);
-    transition: transform 0.3s ease;
+    animation: blinkWhite 1.75s;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes blinkWhite {
+    0%, 100% {background-color: #11f250;}
+    50% {background-color: white;}
 }
 
 .buy-button {
@@ -153,15 +158,21 @@ height: 28px;
     text-decoration: none;
     font-weight: 700;
     border-radius: 30px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     border: none;
     cursor: pointer;
 }
 
 .buy-button:hover {
+    background-color: #11f250;
     transform: scale(1.03);
-    transition: transform 0.3s ease;
+    animation: blinkWhite 1.75s;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes blinkWhite {
+    0%, 100% {background-color: #11f250;}
+    50% {background-color: white;}
 }
 
 .apply-button {
@@ -755,7 +766,7 @@ color: #000;
 }
 
 .detail-card:hover {
-    transform: scale(1.01);
+
     transition: transform 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -794,31 +805,6 @@ font-size: 0.9em;
     font-size: 20px;
     font-weight: lighter;
     margin: 0;
-}
-.ask-button, .buy-button {
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    text-decoration: none;
-    font-weight: bold;
-    text-align: center;
-}
-.ask-button {
-    background-color: #fff;
-    color: #000;
-}
-.ask-button:hover {
-    background-color: #11f250;
-    color: #000;
-}
-
-.buy-button {
-    background-color: #00ff00;
-    color: #000;
-}
-
-.buy-button:hover {
-    background-color: #fff;
-    color: #000;
 }
 
 .offer-content {
