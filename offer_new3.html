@@ -188,6 +188,172 @@
 .service-item span {
     font-size: 0.9em;
 }
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .offer-title {
+        font-size: 1.8rem;
+    }
+
+    .key-features h3, .service-details h3 {
+        font-size: 1.2rem;
+    }
+
+    .key-features li, .service-item span {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: var(--primary-color);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        z-index: 1000;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    .offer-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .offer-image-container, .detail-card {
+        margin-top: 20px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-image, .preview-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .preview-images {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .preview-image {
+        flex: 1 1 20%;
+        max-width: 70px;
+        max-height: 70px;
+    }
+}
+
+@media (max-width: 600px) {
+    .buy-button, .ask-button, .cta-button {
+        padding: 10px;
+        max-width: fit-content;
+        font-size: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .reviews {
+        grid-template-columns: 1fr;
+    }
+
+    .review {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .key-features, .service-details {
+        padding: 0.5rem;
+    }
+
+    .detail-card {
+        padding: 1rem;
+        margin-top: 20px;
+  min-height: fit-content;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .offer-content {
+        margin-top: 1rem;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .subscribe-newsletter-wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .newsletter_text {
+        margin-bottom: 20px;
+    }
+
+    .form {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .text-field-newsletter {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .cta-button_newsletter {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .grid-item, .grid-offer-item {
+        padding: 20px;
+    }
+}
 
     </style>
 </head>

@@ -84,12 +84,88 @@ nav {
     color: var(--accent-color);
 }
 
+
 .notification-icon {
 height: 28px;
     transition: color 0.3s ease;
 }
 
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.hamburger-menu span {
+    display: block;
+    height: 3px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.3s ease;
+}
+
+.nav-links.active {
+    display: block;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: var(--primary-color);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.nav-links a {
+    display: block;
+    margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+    }
+}
+
 .hero-front {
+    body {
+        overflow-x: hidden;
+    }
+
+    body.active .nav-links {
+        display: none;
+    }
+
+    body.active .hamburger-menu span:nth-child(1) {
+        transform: rotate(0) translateY(0);
+    }
+
+    body.active .hamburger-menu span:nth-child(2) {
+        opacity: 1;
+    }
+
+    body.active .hamburger-menu span:nth-child(3) {
+        transform: rotate(0) translateY(0);
+    }
     height: 100vh;
     display: flex;
     align-items: center;
@@ -121,7 +197,7 @@ height: 28px;
 .hero-content p {
     font-size: 1.5rem;
     font-weight: 300;
-    max-width: 600px;
+    max-width: 90%;
     margin: 0 auto 40px;
 }
 
@@ -139,6 +215,26 @@ height: 28px;
 }
 
 .cta-button:hover {
+    background-color: #11f250;
+    transform: scale(1.03);
+    animation: blinkWhite 1.75s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button_newsletter {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--accent-color);
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button_newsletter:hover {
     background-color: #11f250;
     transform: scale(1.03);
     animation: blinkWhite 1.75s;
@@ -510,7 +606,25 @@ padding-left: 15px;
 }
 
 .footer-links :hover {
-color: #000;
+    color: #000;
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .link-4 {
+        margin-left: 0;
+    }
 }
 
 .subscribe-newsletter-wrapper {
@@ -525,6 +639,12 @@ color: #000;
     background-color: #000000;
     padding-right: 15%;
     padding-left: 15%;
+}
+
+.newsletter_text {
+    font-size: 1.2rem;
+    font-weight: 300;
+    max-width: 600px;
 }
 .text-field-newsletter {
     font-family: var(--global-font);
@@ -550,11 +670,63 @@ color: #000;
     border-radius: 30px;
     justify-content: space-between;
     align-items: center;
-    width: 35rem;
+    max-width: 35rem;
     padding-left: 1rem;
     display: flex;
+    flex-wrap: wrap;
+} 
+
+@media (max-width: 600px) {
+    .subscribe-newsletter-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .newsletter_text {
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .form {
+        width: auto;
+        min-width: 340px;
+        max-height: 60px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .text-field-newsletter {
+        width: 100%;
+        max-width: 350px;
+        padding: 10px; 
+        margin-top: 0;
+    }
+
+    .success-message, .error-message {
+    color: #fff;
+    transition: visibility 0.3s ease, height 0.3s ease;
+    z-index: 1000;
 }
 
+.success-message.show, .error-message.show {
+    visibility: visible;
+    height: auto;
+}
+
+.form-block {
+    min-height: 60px;
+    position: relative;
+}
+
+    .cta-button_newsletter {
+        padding: 10px;
+        height: 100%; 
+        font-size: 1rem;
+        position: absolute;
+        right: 0;
+    }
+}
 .tag-filter {
     display: flex;
     justify-content: flex-end;
@@ -678,6 +850,9 @@ color: #000;
     overflow: hidden;
     margin-bottom: 60px;
     text-align: center;
+    align-content: center;
+    min-height: 160px;
+    padding: 5px;
 }
 
 #word-display {
@@ -928,3 +1103,6 @@ font-size: 0.9em;
 .get_listed_container:hover .get_listed_text {
     opacity: 1;
 }
+
+
+

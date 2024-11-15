@@ -12,13 +12,21 @@
         <div class="container">
             <nav>
                 <a href="#top" class="logo">Plaza.</a>
-                <div class="nav-links">
+                <div class="hamburger-menu" id="hamburgerMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="nav-links" id="navLinks">
                     <a href="#services">Services</a>
-                    <a href="#about" >About</a>
+                    <a href="#about">About</a>
                     <a href="#apply">Get Listed</a>
-                    <a href="#newsletter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path fill="currentColor" d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/>
-                      </svg></a>
+                    <a href="#newsletter">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/>
+                        </svg>
+                    </a>
+                </div>
             </nav>
         </div>
     </header>
@@ -164,7 +172,7 @@
 
     <footer>
         <div id=newsletter class="subscribe-newsletter-wrapper">
-            <div class="newsletter">
+            <div class="newsletter_text">
                 <p>Subscribe to our Newsletter</p>
                 <p>& Stay tuned with Plaza.</p>
             </div>
@@ -172,7 +180,7 @@
                 <div class="form-block w-form">
                     <form id="newsletter-form" name="newsletter-form" class="form">
                         <input class="text-field-newsletter" type="email" name="email" placeholder="Enter your Email" required>
-                        <input type="submit" class="cta-button" value="Subscribe">
+                        <input type="submit" class="cta-button_newsletter" value="Subscribe">
                     </form>
                     <div class="success-message" style="display:none;">
                         <div class="black">Thank you! Your subscription has been received!</div>
@@ -303,6 +311,29 @@ function filterByTag() {
             }
         });
     }
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburgerMenu.addEventListener('click', (e) => {
+            navLinks.classList.toggle('active');
+            e.stopPropagation();
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !hamburgerMenu.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        navLinks.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                navLinks.classList.remove('active');
+            }
+        });
+    });
 </script>
     </html>
 
