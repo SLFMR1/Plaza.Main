@@ -335,5 +335,12 @@ function filterByTag() {
         });
     });
 </script>
+<script>document.addEventListener('DOMContentLoaded', function() {
+    var logo = document.querySelector('.logo');
+    logo.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
+    });
+});</script>
     </html>
 
