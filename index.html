@@ -337,7 +337,7 @@ function filterByTag() {
 </script>
 <script>document.addEventListener('DOMContentLoaded', function() {
     var logo = document.querySelector('.logo');
-    logo.addEventListener('click', function(e) {
+    logo.addEventListener('touchstart', function(e) {
         e.preventDefault();
         document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
     });
